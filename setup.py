@@ -9,15 +9,17 @@ from Cython.Build import cythonize
 from distutils.extension import Extension
 from glob import glob
 
-
 import numpy
 
-
+## Source files that will needs to be compiled & linked
 sourcefiles = ['pyxtutorial.pyx',"msrc.cpp"]
 #sourcefiles.append("msrc.cpp")
 
+
+## Name of the c++ shared .so library to be generated
 extensions = [Extension("pyxtutorial", sourcefiles , include_dirs=[numpy.get_include()])]
 
+## Meta-data
 setup(
   name = "pyxtutorial",
   version="1.0",
