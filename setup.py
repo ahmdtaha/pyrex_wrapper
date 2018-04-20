@@ -15,11 +15,14 @@ import numpy
 
 sourcefiles = ['pyxtutorial.pyx',"msrc.cpp"]
 #sourcefiles.append("msrc.cpp")
-print(sourcefiles)
+
 extensions = [Extension("pyxtutorial", sourcefiles , include_dirs=[numpy.get_include()])]
+
 setup(
   name = "pyxtutorial",
-  #ext_modules=[ Extension("cmainmodule", ["cmainmodule.pyx", "main.cpp"]) ]
+  version="1.0",
+  description="Sample Python Rex Wrapper for C++ code",
+  author="Ahmed Taha",
   ext_modules=cythonize(extensions),
   include_dirs=[numpy.get_include()]
 )
